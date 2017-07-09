@@ -17,10 +17,12 @@ class OffsetCalculatorTest < Minitest::Test
     assert_equal Time.now.strftime('%m%d%y').to_i, oc.date
   end
 
-  def test_it_squares_the_date
-    oc = OffsetCalculator.new
+  # def test_it_squares_the_date
+  #   oc = OffsetCalculator.new
+  #
+  #   assert_equal
+  # end
 
-    assert_equal
-  end
+  
 
 end
