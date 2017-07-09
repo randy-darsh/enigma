@@ -16,6 +16,8 @@ class OffsetCalculator
     @date.to_s[-4..-1]
   end
 
-  binding.pry
+  def assign_last_4_to_offset
+
+  end
 
 end
