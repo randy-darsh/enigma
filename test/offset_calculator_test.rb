@@ -11,4 +11,10 @@ class OffsetCalculatorTest < Minitest::Test
     assert_instance_of OffsetCalculator, oc
   end
 
+  def test_it_has_a_time
+    oc = OffsetCalculator.new
+
+    assert_equal Time.now.strftime('%m%d%y').to_i, oc.date
+  end
+
 end

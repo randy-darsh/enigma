@@ -14,7 +14,7 @@ class KeyGeneratorTest < Minitest::Test
   def test_it_creates_single_digit_as_a_string
     key = KeyGenerator.new
 
-    assert_isntance_of String, key.single_digit_to_string
+    assert_intance_of String, key.single_digit_to_string
   end
 
   def test_it_creates_a_5_digit_long_string
