@@ -11,15 +11,15 @@ class KeyGeneratorTest < Minitest::Test
     assert_instance_of KeyGenerator, key
   end
 
-  # def test_it_creates_single_digit_as_a_string
-  #   key = KeyGenerator.new
-  #
-  #   assert_equal "0", key.single_digit_to_string
-  # end
+  def test_it_creates_single_digit_as_a_string
+    key = KeyGenerator.new
+
+    assert_isntance_of String, key.single_digit_to_string
+  end
 
   def test_it_creates_a_5_digit_long_string
     key = KeyGenerator.new
 
-    assert_equal "4", key.key_generator
+    assert_equal 5, key.generate_key.length
   end
 end
