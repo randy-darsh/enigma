@@ -1,7 +1,6 @@
 require './lib/key_generator'
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'simplecov'
 require 'pry'
 
 class KeyGeneratorTest < Minitest::Test

@@ -1,6 +1,6 @@
 require 'pry'
-require_relative "key_generator"
-require_relative "offset_calculator"
+require_relative 'key_generator'
+require_relative 'offset_calculator'
 
 class Encrypt
   attr_reader :character_a,
@@ -9,6 +9,7 @@ class Encrypt
               :character_d,
               :key_gen,
               :offset
+
   def initialize
     @key_gen = KeyGenerator.new
     @offset = OffsetCalculator.new
