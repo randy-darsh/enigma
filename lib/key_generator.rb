@@ -1,16 +1,18 @@
+require 'pry'
 class KeyGenerator
   attr_reader :key
 
   def initialize
-    @key = []
+    @key = generate_key
   end
 
   def generate_key
+    diff_key = []
     numbers = [0,1,2,3,4,5,6,7,8,9]
     5.times do |number|
-      @key << numbers.sample
+      diff_key << numbers.sample
     end
-    @key.join
+    diff_key.join
   end
 
   def a_rotation
@@ -28,4 +30,6 @@ class KeyGenerator
   def d_rotation
     @key[3..4].join
   end
+
+
 end

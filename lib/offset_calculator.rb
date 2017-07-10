@@ -13,30 +13,37 @@ class OffsetCalculator
   end
 
   def square_date_integer
-    @date = @date * @date
+    @date * @date
   end
 
-  def capture_last_4
-    @date = @date.to_s[-4..-1]
+  def capture_last_4(value)
+    value.to_s[-4..-1]
   end
 
-  def assign_last_4_to_offset
-    @date = @date.split(//)
+  def split_into_array(value)
+    value.split(//)
+  end
+
+  def set_offset_key
+    value = square_date_integer
+    capture_last_4(value).split(//)
   end
 
   def a_offset
-    a_offset = @date[0]
+    set_offset_key[0]
   end
 
   def b_offset
-    b_offset = @date[1]
+    set_offset_key[1]
   end
 
   def c_offset
-    c_offset = @date[2]
+    set_offset_key[2]
   end
 
   def d_offset
-    d_offset = @date[3]
+    set_offset_key[3]
   end
+
+
 end

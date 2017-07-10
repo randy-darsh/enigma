@@ -1,6 +1,7 @@
 require './lib/key_generator'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'simplecov'
 require 'pry'
 
 class KeyGeneratorTest < Minitest::Test
@@ -13,6 +14,7 @@ class KeyGeneratorTest < Minitest::Test
 
   def test_it_generates_key
     key = KeyGenerator.new
+
     assert_instance_of String, key.generate_key
   end
 
