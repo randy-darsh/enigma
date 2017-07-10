@@ -1,19 +1,21 @@
 require 'pry'
 
 class KeyGenerator
-  attr_reader :key
+  attr_reader :key,
+              :default_key
 
   def initialize
     @key = generate_key
+    @default_key = "12345"
   end
 
   def generate_key
-    diff_key = []
-    numbers = [0,1,2,3,4,5,6,7,8,9]
+    random_key = []
+    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     5.times do
-      diff_key << numbers.sample
+      random_key << numbers.sample
     end
-    diff_key.join
+    random_key.join
   end
 
   def a_rotation

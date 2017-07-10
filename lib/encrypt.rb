@@ -15,6 +15,10 @@ class Encrypt
     @offset = OffsetCalculator.new
   end
 
+  def character_map
+    character_map = ('a'..'z').to_a + ('0'..'9').to_a + [',','.',' ']
+  end
+
   def character_a
     @character_a = @a_rotation + @a_offset
   end

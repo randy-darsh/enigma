@@ -5,33 +5,32 @@ require 'pry'
 
 class KeyGeneratorTest < Minitest::Test
 
-  def test_it_exists
-    key = KeyGenerator.new
+  def setup
+    @kg = KeyGenerator.new
+    @kg.generate_key
+  end
 
-    assert_instance_of KeyGenerator, key
+  def test_it_exists
+    @kg
+
+    assert_instance_of KeyGenerator, @kg
   end
 
   def test_it_generates_key
-    key = KeyGenerator.new
+    @kg
 
-    assert_instance_of String, key.generate_key
+    assert_instance_of String, @kg.generate_key
   end
 
-  # def test_it_blah
-  #   key = KeyGenerator.new
-  #   assert_equal "12345", key.key
-  # end
-  #
-  #
-  # def test_it_creates_single_digit_as_a_string
-  #   key = KeyGenerator.new
-  #
-  #   assert_instance_of String, key.single_digit_to_string
-  # end
-  #
-  # def test_it_creates_a_5_digit_long_string
-  #   key = KeyGenerator.new
-  #
-  #   assert_equal 5, key.generate_key.length
-  # end
+  def test_default_key_is_static
+    @kg
+
+    assert_equal "12345", @kg.default_key
+  end
+
+  def test_it_creates_a_5_digit_long_string
+    @kg
+
+    assert_equal 5, @kg.generate_key.length
+  end
 end
