@@ -39,5 +39,4 @@ class OffsetCalculator
   def d_offset
     d_offset = @date[3]
   end
-
 end
