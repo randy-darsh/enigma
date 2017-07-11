@@ -1,12 +1,10 @@
 require 'pry'
 
 class KeyGenerator
-  attr_reader :key,
-              :default_key
+  attr_reader :key
 
   def initialize
     @key = generate_key
-    @default_key = "12345"
   end
 
   def generate_key
@@ -18,20 +16,20 @@ class KeyGenerator
     random_key.join
   end
 
-  def a_rotation
-    @key[0..1].join
+  def a_key
+    @key[0..1]
   end
 
-  def b_rotation
-    @key[1..2].join
+  def b_key
+    @key[1..2]
   end
 
-  def c_rotation
-    @key[2..3].join
+  def c_key
+    @key[2..3]
   end
 
-  def d_rotation
-    @key[3..4].join
+  def d_key
+    @key[3..4]
   end
 
 end

@@ -11,26 +11,35 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_exists
-    @kg
-
     assert_instance_of KeyGenerator, @kg
   end
 
   def test_it_generates_key
-    @kg
-
     assert_instance_of String, @kg.generate_key
   end
 
-  def test_default_key_is_static
-    @kg
-
-    assert_equal "12345", @kg.default_key
-  end
-
   def test_it_creates_a_5_digit_long_string
-    @kg
-
     assert_equal 5, @kg.generate_key.length
   end
+
+  def test_it_finds_the_a_key_as_a_two_character_long_string
+    assert_instance_of String, @kg.a_key
+    assert_equal 2, @kg.a_key.length
+  end
+
+  def test_it_finds_the_b_key_as_a_two_character_long_string
+    assert_instance_of String, @kg.b_key
+    assert_equal 2, @kg.b_key.length
+  end
+
+  def test_it_finds_the_c_key_as_a_two_character_long_string
+    assert_instance_of String, @kg.c_key
+    assert_equal 2, @kg.c_key.length
+  end
+
+  def test_it_finds_the_d_key_as_a_two_character_long_string
+    assert_instance_of String, @kg.d_key
+    assert_equal 2, @kg.d_key.length
+  end
+
 end
