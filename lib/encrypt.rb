@@ -47,6 +47,16 @@ class Encrypt
     end
   end
 
+  # def split_word_into_array(value)
+  #   encrypted_word = []
+  #   @character_map.find_all do |character|
+  #     if character == value
+  #       encrypted_word << character
+  #     end
+  #   end
+  #   encrypted_word
+  # end
+
   def return_character_index_value(value)
     @original_index = @character_map.index(value)
   end
@@ -57,8 +67,33 @@ class Encrypt
 
   def return_first_encrypted_character
     @rotated_map_a[@original_index]
-
   end
+
+  def rotate_second_character
+    @rotated_map_b = @character_map.rotate(b_rotation)
+  end
+
+  def return_second_encrypted_character
+    @rotated_map_b[@original_index]
+  end
+
+  def rotate_third_character
+    @rotated_map_c = @character_map.rotate(c_rotation)
+  end
+
+  def return_third_encrypted_character
+    @rotated_map_c[@original_index]
+  end
+
+  def rotate_fourth_character
+    @rotated_map_d = @character_map.rotate(d_rotation)
+  end
+
+  def return_fourth_encrypted_character
+    @rotated_map_d[@original_index]
+  end
+
+
 
   # def find_b_rotation_number(value)
   #   @character_map.index(value) + b_rotation
@@ -71,11 +106,6 @@ class Encrypt
   # def find_d_rotation_number(value)
   #   @character_map.index(value) + d_rotation
   # end
-
-  def find_new_index_position(value)
-    @character_map.rotate(find_rotation_number)
-    @character_map.index(find_rotation_number)
-  end
 
   # first it needs to find the index of the first character input
   # then it needs to rotate forward through the character map

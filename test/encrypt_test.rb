@@ -25,8 +25,6 @@ class EncryptTest < Minitest::Test
     assert_instance_of Integer, @encrypt.find_rotation_number("g")
   end
 
-
-
   # def test_it_can_find_multiple_characters
   #   skip
   #   assert_equal "", @encrypt.find_character("")
