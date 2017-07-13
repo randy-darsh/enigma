@@ -23,4 +23,6 @@ class EnigmaOutput
     print_message
   end
 
+  # .scan(/.{4}/) to split words into 4 letter chunks
+
 end

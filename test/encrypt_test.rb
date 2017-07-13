@@ -13,22 +13,20 @@ class EncryptTest < Minitest::Test
     assert_instance_of Encrypt, @encrypt
   end
 
-  def test_it_can_find_a_character
-    assert_equal "g", @encrypt.find_character("g")
+  def test_it_splits_a_message_into_an_array_of_indexes
+    assert_equal [22, 7, 0, 19, 4, 21, 4, 17], @encrypt.find_message_index_numbers("whatever")
   end
 
-  def test_it_can_find_a_character_by_index
-    assert_equal 6, @encrypt.return_character_index_value("g")
+  def test_it_has_an_a_rotation
+    assert_instance_of Integer, @encrypt.a_rotation
   end
 
-  def test_it_finds_new_index_of_character
-    assert_instance_of Integer, @encrypt.find_rotation_number("g")
+  def test_it_creates_a_new_rotated_map
+    assert_instance_of Array, @encrypt.rotate_character
   end
 
-  # def test_it_can_find_multiple_characters
-  #   skip
-  #   assert_equal "", @encrypt.find_character("")
-  # end
-
+  def test_it_can_return_the_encrypted_character
+    assert_instance_of String, @encrypt.return_encrypted_character
+  end
 
 end

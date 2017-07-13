@@ -12,10 +12,10 @@ class Encrypt
               :offset,
               :character_map,
               :enigma_input,
-              :find_character
+              :original_indexes
 
   def initialize
-    @enigma_input = EnigmaInput.new
+    @enigma_input = enigma_input
     @key_gen = KeyGenerator.new
     @offset = OffsetCalculator.new
     @character_map = character_map
@@ -41,75 +41,42 @@ class Encrypt
     @key_gen.d_key.to_i + @offset.d_offset.to_i
   end
 
-  def find_character(value)
-    @character_map.find do |character|
-      character == value
+  def find_message_index_numbers(enigma_input)
+    @original_indexes = enigma_input.split(//).map do |character|
+      @character_map.index(character)
     end
   end
 
-  # def split_word_into_array(value)
-  #   encrypted_word = []
-  #   @character_map.find_all do |character|
-  #     if character == value
-  #       encrypted_word << character
-  #     end
-  #   end
-  #   encrypted_word
-  # end
-
-  def return_character_index_value(value)
-    @original_index = @character_map.index(value)
-  end
-
-  def rotate_first_character
+  def encrypt_a
     @rotated_map_a = @character_map.rotate(a_rotation)
+    @rotated_map_a[@original_indexes[0]]
   end
 
-  def return_first_encrypted_character
-    @rotated_map_a[@original_index]
-  end
-
-  def rotate_second_character
+  def encrypt_b
     @rotated_map_b = @character_map.rotate(b_rotation)
+    @rotated_map_b[@original_indexes[1]]
   end
 
-  def return_second_encrypted_character
-    @rotated_map_b[@original_index]
-  end
-
-  def rotate_third_character
+  def encrypt_c
     @rotated_map_c = @character_map.rotate(c_rotation)
+    @rotated_map_c[@original_indexes[2]]
   end
 
-  def return_third_encrypted_character
-    @rotated_map_c[@original_index]
-  end
-
-  def rotate_fourth_character
+  def encrypt_d
     @rotated_map_d = @character_map.rotate(d_rotation)
+    @rotated_map_d[@original_indexes[3]]
   end
 
-  def return_fourth_encrypted_character
-    @rotated_map_d[@original_index]
+  def sort_message_into_encryption(index)
+    if index % 4 == 0
+      @rotated_map_a.encrypt_a
+    elsif index % 4 == 1
+      @rotated_map_b.encrypt_b
+    elsif index % 4 == 2
+      @rotated_map_c.encrypt_c
+    elsif index % 4 == 3
+      @rotated_map_d.encrypt_d
+    end
   end
-
-
-
-  # def find_b_rotation_number(value)
-  #   @character_map.index(value) + b_rotation
-  # end
-  #
-  # def find_c_rotation_number(value)
-  #   @character_map.index(value) + c_rotation
-  # end
-  #
-  # def find_d_rotation_number(value)
-  #   @character_map.index(value) + d_rotation
-  # end
-
-  # first it needs to find the index of the first character input
-  # then it needs to rotate forward through the character map
-  # rotate will take the argument of the final rotation values
-  # returns the character at that same index, after it's been rotated
 
 end
